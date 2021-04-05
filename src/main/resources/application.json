@@ -1,0 +1,13 @@
+{
+  "micronaut": {
+    "application": {
+      "name": "micronaut-jakarta-test"
+    }
+  },
+  "my": {
+    "props": {
+      "p1": " - passed"
+    }
+  }
+  
+}
