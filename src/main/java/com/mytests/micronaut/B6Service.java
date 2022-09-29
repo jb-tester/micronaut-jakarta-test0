@@ -7,5 +7,5 @@ package com.mytests.micronaut;
  * *
  */
 public interface B6Service {
-    String getId()
+    String getId();
 }
