@@ -26,7 +26,7 @@ public class Cont {
     @Inject @Named("b3_2")
     B3Service b3;
     
-    // no navigation, no completion for qualifier:
+    // no navigation, no completion for qualifier (target class has only @Named annotation)
     @Inject @Named("b4")
     B4 b4;
 
@@ -42,24 +42,24 @@ public class Cont {
     @Inject @Named("b6")
     B6Service b62;
 
-    // target class has value-less @Named annotation
+    // target class has value-less @Named annotation - ok!
     @Inject @Named("b7ServiceImpl1")
     B7Service b7Service1;
 
-    // target class has no @Named annotation
+    // target class has no @Named annotation - no navigation
     @Inject @Named("b7ServiceImpl2")
     B7Service b7Service2;
 
-    // target class has @Named annotation with explicit value similar to default (class name)
+    // target class has @Named annotation with explicit value similar to default (class name) - no navigation
     @Inject @Named("b7ServiceImpl3")
     B7Service b7Service3;
 
-    // target class has @Named annotation with explicit value different from class name
+    // target class has @Named annotation with explicit value different from class name - no navigation
     @Inject @Named("b7_impl4")
     B7Service b7Service4;
 
 
-    //@Inject @Named("") // test completion
+    //@Inject @Named("") // test completion; actually 'impl1', 'impl2' and 'foo' are suggested
     Bean8Service bean8Service;
 
 
