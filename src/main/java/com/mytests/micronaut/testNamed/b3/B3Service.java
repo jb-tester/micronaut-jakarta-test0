@@ -1,4 +1,4 @@
-package com.mytests.micronaut;
+package com.mytests.micronaut.testNamed.b3;
 
 /**
  * *

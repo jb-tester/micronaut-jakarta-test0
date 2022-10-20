@@ -1,4 +1,4 @@
-package com.mytests.micronaut;
+package com.mytests.micronaut.testNamed.b6;
 
 import jakarta.inject.Named;
 import jakarta.inject.Singleton;

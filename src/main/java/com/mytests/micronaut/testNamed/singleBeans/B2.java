@@ -1,4 +1,4 @@
-package com.mytests.micronaut;
+package com.mytests.micronaut.testNamed.singleBeans;
 
 import io.micronaut.context.annotation.Value;
 import jakarta.inject.Singleton;

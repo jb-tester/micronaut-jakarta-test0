@@ -1,8 +1,6 @@
-package com.mytests.micronaut;
+package com.mytests.micronaut.testNamed.b3;
 
 import jakarta.inject.Named;
-import jakarta.inject.Qualifier;
-import jakarta.inject.Singleton;
 
 /**
  * *
