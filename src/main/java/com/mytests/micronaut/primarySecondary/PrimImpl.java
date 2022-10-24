@@ -1,6 +1,7 @@
 package com.mytests.micronaut.primarySecondary;
 
-import javax.inject.Singleton;
+
+import jakarta.inject.Singleton;
 
 @Singleton
 public class PrimImpl implements PrimSecService {

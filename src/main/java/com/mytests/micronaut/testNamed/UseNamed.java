@@ -11,8 +11,8 @@ import com.mytests.micronaut.testNamed.singleBeans.B2;
 import com.mytests.micronaut.testNamed.singleBeans.B4;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
+import jakarta.inject.Singleton;
 
-import javax.inject.Singleton;
 
 @Singleton
 public class UseNamed {

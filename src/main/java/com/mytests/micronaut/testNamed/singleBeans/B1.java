@@ -1,8 +1,7 @@
 package com.mytests.micronaut.testNamed.singleBeans;
 
 import io.micronaut.context.annotation.Value;
-
-import javax.inject.Singleton;
+import jakarta.inject.Singleton;
 
 
 @Singleton

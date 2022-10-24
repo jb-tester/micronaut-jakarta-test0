@@ -1,8 +1,8 @@
 package com.mytests.micronaut.primarySecondary;
 
 import io.micronaut.context.annotation.Secondary;
+import jakarta.inject.Singleton;
 
-import javax.inject.Singleton;
 
 @Singleton
 @Secondary
