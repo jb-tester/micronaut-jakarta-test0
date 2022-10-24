@@ -9,23 +9,23 @@ import com.mytests.micronaut.testNamed.b8.Bean8Service;
 import com.mytests.micronaut.testNamed.singleBeans.B1;
 import com.mytests.micronaut.testNamed.singleBeans.B2;
 import com.mytests.micronaut.testNamed.singleBeans.B4;
-import io.micronaut.http.annotation.Controller;
-import io.micronaut.http.annotation.Get;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
 
+import javax.inject.Singleton;
 
-@Controller
-public class Cont {
+@Singleton
+public class UseNamed {
+
     @Inject
     B1 b1;
     @Inject
     B2 b2;
-    
+
     // incorrect completion for names, no completion for one of qualifiers:
     @Inject @Named("b3_2")
     B3Service b3;
-    
+
     // no navigation, no completion for qualifier (target class has only @Named annotation)
     @Inject @Named("b4")
     B4 b4;
@@ -62,12 +62,9 @@ public class Cont {
     //@Inject @Named("") // test completion; actually 'impl1', 'impl2' and 'foo' are suggested
     Bean8Service bean8Service;
 
-
-
-
-    @Get("/")
-    public String home() {
-        return b5.getId()+ " " +b1.getFoo()+ " " +b2.getBar()+ " " +b3.getId()+ " " +b4.getId()+ " " +b61.getId()+ " " +b62.getId()
+    public String namedTestDisplay() {
+        return "Named test:"+b5.getId()+ " " +b1.getFoo()+ " " +b2.getBar()+ " " +b3.getId()+ " " +b4.getId()+ " " +b61.getId()+ " " +b62.getId()
                 + " " +b7Service1.getId()+ " " +b7Service2.getId()+ " " +b7Service3.getId()+ " " +b7Service4.getId();
     }
+
 }
