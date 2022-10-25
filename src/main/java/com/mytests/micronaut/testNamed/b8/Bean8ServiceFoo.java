@@ -10,6 +10,6 @@ import jakarta.inject.Singleton;
  * *
  */
 @Singleton
-@Named("booBean8Service")
-public class Bean8ServiceImpl1 implements Bean8Service {
+@Named
+public class Bean8ServiceFoo implements Bean8Service {
 }
