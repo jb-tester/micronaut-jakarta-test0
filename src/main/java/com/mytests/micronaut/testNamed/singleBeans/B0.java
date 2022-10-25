@@ -10,7 +10,7 @@ import jakarta.inject.Singleton;
  * *
  */
 @Singleton()
-public class B2 {
+public class B0 {
     @Value("${my.props.p1}")
     String bar;
 

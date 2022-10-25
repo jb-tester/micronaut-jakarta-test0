@@ -7,6 +7,6 @@ import jakarta.inject.Singleton;
 public class PrimImpl implements PrimSecService {
     @Override
     public String getStr() {
-        return "prim";
+        return "primary";
     }
 }

@@ -1,14 +1,15 @@
 package com.mytests.micronaut.testNamed;
 
+import com.mytests.micronaut.testNamed.b2.B22;
+import com.mytests.micronaut.testNamed.b2.B221;
+import com.mytests.micronaut.testNamed.b2.B2Service;
 import com.mytests.micronaut.testNamed.b3.B3Service;
 import com.mytests.micronaut.testNamed.b5.B5Service;
 import com.mytests.micronaut.testNamed.b6.B6;
 import com.mytests.micronaut.testNamed.b6.B6Service;
 import com.mytests.micronaut.testNamed.b7.B7Service;
 import com.mytests.micronaut.testNamed.b8.Bean8Service;
-import com.mytests.micronaut.testNamed.singleBeans.B1;
-import com.mytests.micronaut.testNamed.singleBeans.B2;
-import com.mytests.micronaut.testNamed.singleBeans.B4;
+import com.mytests.micronaut.testNamed.singleBeans.*;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import jakarta.inject.Singleton;
@@ -18,9 +19,26 @@ import jakarta.inject.Singleton;
 public class UseNamed {
 
     @Inject
-    B1 b1;
+    B0 b0;
     @Inject
-    B2 b2;
+    B1 b1;
+
+    // target bean has no @Named annotation
+    @Inject @Named("b21")
+    B2Service b21;
+
+    // Speicific bean type injection in case of subtype beans presence:
+    @Inject
+    B22 b22;
+    @Inject
+    B221 b22_1;
+
+    @Inject
+    Child child_bean;
+    @Inject
+    Parent parent_bean;
+
+
 
     // incorrect completion for names, no completion for one of qualifiers:
     @Inject @Named("b3_2")
@@ -63,8 +81,8 @@ public class UseNamed {
     Bean8Service bean8Service;
 
     public String namedTestDisplay() {
-        return "Named test:"+b5.getId()+ " " +b1.getFoo()+ " " +b2.getBar()+ " " +b3.getId()+ " " +b4.getId()+ " " +b61.getId()+ " " +b62.getId()
-                + " " +b7Service1.getId()+ " " +b7Service2.getId()+ " " +b7Service3.getId()+ " " +b7Service4.getId();
+        return "Named test:"+b5.getId()+ " " +b1.getFoo()+ " " + b0.getBar()+ " " +b3.getId()+ " " +b4.getId()+ " " +b61.getId()+ " " +b62.getId()
+                + " " +b7Service1.getId()+ " " +b7Service2.getId()+ " " +b7Service3.getId()+ " " +b7Service4.getId()+" "+b21.getStr()+" "+ b22.getStr();
     }
 
 }
