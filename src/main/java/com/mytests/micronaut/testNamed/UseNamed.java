@@ -27,36 +27,42 @@ public class UseNamed {
     @Inject @Named("b21")
     B2Service b21;
 
-    // Speicific bean type injection in case of subtype beans presence:
+    // Specific bean type injection in case of subtype beans presence:
+    // false ambiguous dependency error: should navigate to single bean oof Parent type
     @Inject
     B22 b22;
+
     @Inject
     B221 b22_1;
 
-    @Inject
-    Child child_bean;
+    // Specific bean type injection in case of subtype beans presence:
+    // false ambiguous dependency error: should navigate to single bean oof Parent type
     @Inject
     Parent parent_bean;
 
+    @Inject
+    Child child_bean;
 
 
-    // incorrect completion for names, no completion for one of qualifiers:
+    // (target class has only @Named annotation))
+    // no navigation, no completion for one of qualifiers:
     @Inject @Named("b3_2")
     B3Service b3;
 
-    // no navigation, no completion for qualifier (target class has only @Named annotation)
+    // (target class has only @Named annotation))
+    // no navigation, no completion for qualifier
     @Inject @Named("b4")
     B4 b4;
 
-    // incorrect qualifiers are completed, navigation doesn't work:
+    // incorrect qualifiers are completed, navigation doesn't work - fixed
     @Inject @Named("b5_jakarta")
     B5Service b5;
 
-    // empty name is suggested here:
+    // empty name is suggested here - fixed
     @Inject @Named("b6")
     B6 b61;
 
-    // completion is ok here, but navigation doesn't work:
+    // completion is ok here, but navigation doesn't work - fixed
     @Inject @Named("b6")
     B6Service b62;
 
@@ -64,20 +70,20 @@ public class UseNamed {
     @Inject @Named("b7ServiceImpl1")
     B7Service b7Service1;
 
-    // target class has no @Named annotation - no navigation
+    // target class has no @Named annotation: no navigation - fixed
     @Inject @Named("b7ServiceImpl2")
     B7Service b7Service2;
 
-    // target class has @Named annotation with explicit value similar to default (class name) - no navigation
+    // target class has @Named annotation with explicit value similar to default (class name): no navigation - fixed
     @Inject @Named("b7ServiceImpl3")
     B7Service b7Service3;
 
-    // target class has @Named annotation with explicit value different from class name - no navigation
+    // target class has @Named annotation with explicit value different from class name: no navigation - fixed
     @Inject @Named("b7_impl4")
     B7Service b7Service4;
 
 
-    //@Inject @Named("") // test completion; actually 'impl1', 'impl2' and 'foo' are suggested
+    //@Inject @Named("") // test completion; actually 'impl1', 'impl2' and 'foo' are suggested - fixed
     Bean8Service bean8Service;
 
     public String namedTestDisplay() {
