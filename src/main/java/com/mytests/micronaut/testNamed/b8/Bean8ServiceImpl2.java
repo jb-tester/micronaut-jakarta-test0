@@ -12,4 +12,8 @@ import jakarta.inject.Singleton;
 @Singleton
 @Named
 public class Bean8ServiceImpl2 implements Bean8Service {
+    @Override
+    public String getId() {
+        return "bean8_2";
+    }
 }

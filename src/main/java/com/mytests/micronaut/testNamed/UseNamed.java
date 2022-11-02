@@ -9,6 +9,8 @@ import com.mytests.micronaut.testNamed.b6.B6;
 import com.mytests.micronaut.testNamed.b6.B6Service;
 import com.mytests.micronaut.testNamed.b7.B7Service;
 import com.mytests.micronaut.testNamed.b8.Bean8Service;
+import com.mytests.micronaut.testNamed.b8.Bean8ServiceFoo;
+import com.mytests.micronaut.testNamed.b8.Bean8ServiceImpl1;
 import com.mytests.micronaut.testNamed.singleBeans.*;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
@@ -86,7 +88,21 @@ public class UseNamed {
     //@Inject @Named("") // test completion; actually 'impl1', 'impl2' and 'foo' are suggested - fixed
     Bean8Service bean8Service;
 
+    // false-positive 'unsatisfied dependency' error in case of empty @Named annotation
+    @Named
+    @Inject
+    private Bean8Service bean8ServiceFoo;
+
+    @Named("booBean8Service")
+    @Inject
+    private Bean8Service bean8ServiceImpl1;
+
     public String namedTestDisplay() {
+
+        System.out.println("**********************************");
+        System.out.println(bean8ServiceFoo.getId());
+        System.out.println(bean8ServiceImpl1.getId());
+        System.out.println("**********************************");
         return "Named test:"+b5.getId()+ " " +b1.getFoo()+ " " + b0.getBar()+ " " +b3.getId()+ " " +b4.getId()+ " " +b61.getId()+ " " +b62.getId()
                 + " " +b7Service1.getId()+ " " +b7Service2.getId()+ " " +b7Service3.getId()+ " " +b7Service4.getId()+" "+b21.getStr()+" "+ b22.getStr();
     }

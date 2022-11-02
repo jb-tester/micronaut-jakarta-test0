@@ -7,4 +7,6 @@ package com.mytests.micronaut.testNamed.b8;
  * *
  */
 public interface Bean8Service {
+
+    String getId();
 }
